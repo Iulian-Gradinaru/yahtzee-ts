@@ -20,5 +20,11 @@ export const Die: React.FC<DieProps> = ({
   if (locked) classes += 'Die-locked';
   if (rolling) classes += 'Die-rolling';
 
-  return <i className={classes} onClick={handleDieClick} disabled={disabled} />;
+  return (
+    <button
+      className={classes}
+      onClick={handleDieClick}
+      disabled={disabled}
+    ></button>
+  );
 };

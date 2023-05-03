@@ -2,29 +2,34 @@ import React from 'react';
 import { RuleRow } from '../RuleRow';
 import { ScoreTableProps } from './ScoreTable.types';
 import './ScoreTable.css';
-import {
-  ones,
-  twos,
-  threes,
-  fours,
-  fives,
-  sixes,
-  threeOfKind,
-  fourOfKind,
-  fullHouse,
-  smallStraight,
-  largeStraight,
-  yahtzee,
-  chance,
-  ScoreType,
-  ScoreMap,
-} from './Rules';
+
+import { useDiceGame } from '../../GameRules';
 
 export const ScoreTable: React.FC<ScoreTableProps> = ({ scores, doScore }) => {
+  const {
+    ones,
+    twos,
+    threes,
+    fours,
+    fives,
+    sixes,
+    fullHouse,
+    threeOfKind,
+    fourOfKind,
+    smallStraight,
+    largeStraight,
+    yahtzee,
+    chance,
+  } = useDiceGame();
+
   const getTotalScore = () => {
     let totalScore = 0;
-    for (let key in scores) {
-      if (scores[key]) totalScore += scores[key];
+    if (scores !== undefined && scores !== null) {
+      for (let key in scores) {
+        if (key in scores && scores[key]) {
+          totalScore += scores[key];
+        }
+      }
     }
     return totalScore;
   };
@@ -39,37 +44,37 @@ export const ScoreTable: React.FC<ScoreTableProps> = ({ scores, doScore }) => {
               name="Ones"
               score={scores.ones}
               description={ones.description}
-              doScore={(evt) => doScore('ones', ones.evalRoll)}
+              doScore={() => doScore('ones', ones.evalRoll)}
             />
             <RuleRow
               name="Twos"
               score={scores.twos}
               description={twos.description}
-              doScore={(evt) => doScore('twos', twos.evalRoll)}
+              doScore={() => doScore('twos', twos.evalRoll)}
             />
             <RuleRow
               name="Threes"
               score={scores.threes}
               description={threes.description}
-              doScore={(evt) => doScore('threes', threes.evalRoll)}
+              doScore={() => doScore('threes', threes.evalRoll)}
             />
             <RuleRow
               name="Fours"
               score={scores.fours}
               description={fours.description}
-              doScore={(evt) => doScore('fours', fours.evalRoll)}
+              doScore={() => doScore('fours', fours.evalRoll)}
             />
             <RuleRow
               name="Fives"
               score={scores.fives}
               description={fives.description}
-              doScore={(evt) => doScore('fives', fives.evalRoll)}
+              doScore={() => doScore('fives', fives.evalRoll)}
             />
             <RuleRow
               name="Sixes"
               score={scores.sixes}
               description={sixes.description}
-              doScore={(evt) => doScore('sixes', sixes.evalRoll)}
+              doScore={() => doScore('sixes', sixes.evalRoll)}
             />
           </tbody>
         </table>
@@ -82,47 +87,43 @@ export const ScoreTable: React.FC<ScoreTableProps> = ({ scores, doScore }) => {
               name="Three of Kind"
               score={scores.threeOfKind}
               description={threeOfKind.description}
-              doScore={(evt) => doScore('threeOfKind', threeOfKind.evalRoll)}
+              doScore={() => doScore('threeOfKind', threeOfKind.evalRoll)}
             />
             <RuleRow
               name="Four of Kind"
               score={scores.fourOfKind}
               description={fourOfKind.description}
-              doScore={(evt) => doScore('fourOfKind', fourOfKind.evalRoll)}
+              doScore={() => doScore('fourOfKind', fourOfKind.evalRoll)}
             />
             <RuleRow
               name="Full House"
               score={scores.fullHouse}
               description={fullHouse.description}
-              doScore={(evt) => doScore('fullHouse', fullHouse.evalRoll)}
+              doScore={() => doScore('fullHouse', fullHouse.evalRoll)}
             />
             <RuleRow
               name="Small Straight"
               score={scores.smallStraight}
               description={smallStraight.description}
-              doScore={(evt) =>
-                doScore('smallStraight', smallStraight.evalRoll)
-              }
+              doScore={() => doScore('smallStraight', smallStraight.evalRoll)}
             />
             <RuleRow
               name="Large Straight"
               score={scores.largeStraight}
               description={largeStraight.description}
-              doScore={(evt) =>
-                doScore('largeStraight', largeStraight.evalRoll)
-              }
+              doScore={() => doScore('largeStraight', largeStraight.evalRoll)}
             />
             <RuleRow
               name="Yahtzee"
               score={scores.yahtzee}
               description={yahtzee.description}
-              doScore={(evt) => doScore('yahtzee', yahtzee.evalRoll)}
+              doScore={() => doScore('yahtzee', yahtzee.evalRoll)}
             />
             <RuleRow
               name="Chance"
               score={scores.chance}
               description={chance.description}
-              doScore={(evt) => doScore('chance', chance.evalRoll)}
+              doScore={() => doScore('chance', chance.evalRoll)}
             />
           </tbody>
         </table>

@@ -1,15 +1,13 @@
-import React, { useState, useEffect } from "react";
-import { Dice } from "../Dice";
-import {ScoreTable} from "./ScoreTable";
-import { Scores } from "./Game.types";
-import "./Game.css";
+import React, { useState, useEffect } from 'react';
+import { Dice } from '../Dice';
+import { ScoreTable } from '../ScoreTable';
+import { Scores } from './Game.types';
+import './Game.css';
 
 const NUM_DICE = 5;
 const NUM_ROLLS = 3;
 
-
-
- export const Game: React.FC = () => {
+export const Game: React.FC = () => {
   const [dice, setDice] = useState<number[]>(Array.from({ length: NUM_DICE }));
   const [locked, setLocked] = useState<boolean[]>(Array(NUM_DICE).fill(false));
   const [rollsLeft, setRollsLeft] = useState<number>(NUM_ROLLS);
@@ -71,7 +69,12 @@ const NUM_ROLLS = 3;
   };
 
   const displayRollInfo = () => {
-    const messages = ["0 Rolls Left", "1 Roll Left", "2 Rolls Left", "Starting Round"];
+    const messages = [
+      '0 Rolls Left',
+      '1 Roll Left',
+      '2 Rolls Left',
+      'Starting Round',
+    ];
     return messages[rollsLeft];
   };
 
@@ -95,7 +98,6 @@ const NUM_ROLLS = 3;
             >
               {displayRollInfo()}
             </button>
-            >
           </div>
         </section>
       </header>
