@@ -24,11 +24,9 @@ export const ScoreTable: React.FC<ScoreTableProps> = ({ scores, doScore }) => {
 
   const getTotalScore = () => {
     let totalScore = 0;
-    if (scores !== undefined && scores !== null) {
-      for (let key in scores) {
-        if (key in scores && scores[key]) {
-          totalScore += scores[key];
-        }
+    for (let key in scores) {
+      if (scores[key]) {
+        totalScore += scores[key]!;
       }
     }
     return totalScore;
