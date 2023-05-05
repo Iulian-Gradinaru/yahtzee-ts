@@ -34,34 +34,33 @@ export const Game: React.FC = () => {
 
   const animateRoll = () => {
     setRolling(true);
-    setTimeout(roll, 1000);
+    setTimeout(() => {
+      roll();
+    }, 1000);
   };
 
   const roll = () => {
-    setDice((prevDice) =>
-      prevDice.map((d, i) => (locked[i] ? d : Math.ceil(Math.random() * 6)))
+    setDice((st) =>
+      st.map((d, i) => (locked[i] ? d : Math.ceil(Math.random() * 6)))
     );
-    setLocked((prevLocked) =>
-      rollsLeft > 1 ? prevLocked : Array(NUM_DICE).fill(true)
-    );
-    setRollsLeft((prevRollsLeft) => prevRollsLeft - 1);
+    setLocked((st) => (rollsLeft > 1 ? st : Array(NUM_DICE).fill(true)));
+    setRollsLeft((st) => st - 1);
     setRolling(false);
   };
 
   const toggleLocked = (idx: number) => {
     if (rollsLeft > 0 && !rolling) {
-      setLocked((prevLocked) => [
-        ...prevLocked.slice(0, idx),
-        !prevLocked[idx],
-        ...prevLocked.slice(idx + 1),
-      ]);
+      setLocked((st) => [...st.slice(0, idx), !st[idx], ...st.slice(idx + 1)]);
     }
   };
 
-  const doScore = (ruleName: keyof Scores, ruleFn: Function) => {
-    setScores((prevScores) => ({
-      ...prevScores,
-      [ruleName]: ruleFn(dice),
+  const doScore = (
+    rulename: keyof Scores,
+    ruleFn: (dice: number[]) => number
+  ) => {
+    setScores((st) => ({
+      ...st,
+      [rulename]: ruleFn(dice),
     }));
     setRollsLeft(NUM_ROLLS);
     setLocked(Array(NUM_DICE).fill(false));
