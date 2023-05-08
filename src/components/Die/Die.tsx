@@ -1,5 +1,16 @@
-import './Die.css';
+// import './Die.css';
 import { DieProps } from './Die.types';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+
+import { Button } from './Die.styled';
+import {
+  faDiceOne,
+  faDiceTwo,
+  faDiceThree,
+  faDiceFour,
+  faDiceFive,
+  faDiceSix,
+} from '@fortawesome/free-solid-svg-icons';
 
 export const Die: React.FC<DieProps> = ({
   numberWords = ['one', 'two', 'three', 'four', 'five', 'six'],
@@ -18,10 +29,27 @@ export const Die: React.FC<DieProps> = ({
   if (locked) classes += ' Die-locked';
   if (rolling) classes += ' Die-rolling';
 
+  const getDieFace = () => {
+    const diceFaces = [
+      faDiceOne,
+      faDiceTwo,
+      faDiceThree,
+      faDiceFour,
+      faDiceFive,
+      faDiceSix,
+    ];
+    return diceFaces[val - 1];
+  };
+
   return (
-    <button className={classes} onClick={handleDieClick} disabled={disabled}>
-      {val}
-      {/* <i className="fa"></i> */}
-    </button>
+    <Button
+      className={classes}
+      onClick={handleDieClick}
+      disabled={disabled}
+      locked={locked ? 1 : 0}
+      rolling={rolling ? 1 : 0}
+    >
+      <FontAwesomeIcon icon={getDieFace()} />
+    </Button>
   );
 };

@@ -7,3 +7,8 @@ export interface DieProps {
   handleClick?: (idx: number) => void;
   idx?: number;
 }
+
+export interface ButtonProps {
+  locked: number;
+  rolling: number;
+}

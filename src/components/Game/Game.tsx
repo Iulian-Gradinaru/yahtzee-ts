@@ -2,7 +2,15 @@ import React, { useState, useEffect } from 'react';
 import { Dice } from '../Dice';
 import { ScoreTable } from '../ScoreTable';
 import { Scores } from './Game.types';
-import './Game.css';
+
+import {
+  GameContainer,
+  H2,
+  GameDiceSection,
+  GameButtonWrapper,
+  GameReroll,
+  GameHeader,
+} from './Game.styles';
 
 const NUM_DICE = 5;
 const NUM_ROLLS = 3;
@@ -78,10 +86,10 @@ export const Game: React.FC = () => {
   };
 
   return (
-    <div className="Game">
-      <header className="Game-header">
-        <h1 className="App-title">Yahtzee!</h1>
-        <section className="Game-dice-section">
+    <GameContainer className="Game">
+      <GameHeader className="Game-header">
+        <H2 className="App-title">Yahtzee!</H2>
+        <GameDiceSection className="Game-dice-section">
           <Dice
             dice={dice}
             locked={locked}
@@ -89,18 +97,18 @@ export const Game: React.FC = () => {
             disabled={rollsLeft === 0}
             rolling={rolling}
           />
-          <div className="Game-button-wrapper">
-            <button
+          <GameButtonWrapper className="Game-button-wrapper">
+            <GameReroll
               className="Game-reroll"
               disabled={locked.every((x) => x) || rollsLeft === 0 || rolling}
               onClick={animateRoll}
             >
               {displayRollInfo()}
-            </button>
-          </div>
-        </section>
-      </header>
+            </GameReroll>
+          </GameButtonWrapper>
+        </GameDiceSection>
+      </GameHeader>
       <ScoreTable doScore={doScore} scores={scores} />
-    </div>
+    </GameContainer>
   );
 };

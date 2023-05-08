@@ -1,6 +1,7 @@
 import React from 'react';
 import { Die } from '../Die/Die';
 import { DiceProps } from './Dice.types';
+import { DiceContainer } from './Dice.styles';
 
 export const Dice: React.FC<DiceProps> = ({
   dice,
@@ -10,7 +11,7 @@ export const Dice: React.FC<DiceProps> = ({
   rolling,
 }: DiceProps) => {
   return (
-    <div className="Dice">
+    <DiceContainer className="Dice">
       {dice.map((d, idx) => (
         <Die
           handleClick={handleClick}
@@ -22,6 +23,6 @@ export const Dice: React.FC<DiceProps> = ({
           rolling={rolling && !locked[idx]}
         />
       ))}
-    </div>
+    </DiceContainer>
   );
 };
