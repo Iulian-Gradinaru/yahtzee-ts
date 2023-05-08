@@ -9,6 +9,7 @@ export const RuleRow: React.FC<RuleRowProps> = ({
   description,
 }) => {
   const disabled = score !== undefined;
+
   return (
     <tr
       className={`RuleRow RuleRow-${disabled ? 'disabled' : 'active'}`}

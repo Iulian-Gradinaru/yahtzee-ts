@@ -4,7 +4,7 @@
 // }
 
 import { Scores } from '../Game/Game.types';
-type RuleFn = (dice: number[]) => number;
+export type RuleFn = (dice: number[]) => number;
 
 type ScoreType = keyof Scores;
 export interface ScoreTableProps {
