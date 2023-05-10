@@ -2,10 +2,10 @@ import { styled } from '@mui/system';
 
 export const GameContainer = styled('div')(() => {
   return {
-    width: '30%',
+    // width: '30%',
     background: 'white',
     boxShadow: '0 19px 38px rgba(0, 0, 0, 0.3), 0 15px 12px rgba(0, 0, 0, 0.1)',
-    margin: '0 30%',
+    // margin: '0 30%',
     display: 'flex',
     flexDirection: 'column',
     justifyContent: 'center',
@@ -13,12 +13,10 @@ export const GameContainer = styled('div')(() => {
   };
 });
 
-export const H2 = styled('h2')(() => {
+export const Title = styled('h2')(() => {
   return {
     fontWeight: 100,
     fontSize: '2em',
-
-    // display: 'inline-block',
   };
 });
 

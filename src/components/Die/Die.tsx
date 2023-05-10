@@ -1,8 +1,7 @@
 // import './Die.css';
 import { DieProps } from './Die.types';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
-import { Button } from './Die.styled';
+import { Button, DieIcon } from './Die.styled';
 import {
   faDiceOne,
   faDiceTwo,
@@ -49,7 +48,7 @@ export const Die: React.FC<DieProps> = ({
       locked={locked ? 1 : 0}
       rolling={rolling ? 1 : 0}
     >
-      <FontAwesomeIcon icon={getDieFace()} />
+      <DieIcon icon={getDieFace()} />
     </Button>
   );
 };

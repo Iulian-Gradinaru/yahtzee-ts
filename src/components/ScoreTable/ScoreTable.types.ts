@@ -1,8 +1,3 @@
-// export interface ScoreTableProps {
-//   scores: ScoreMap;
-//   doScore: (name: ScoreType, roll: number[]) => void;
-// }
-
 import { Scores } from '../Game/Game.types';
 export type RuleFn = (dice: number[]) => number;
 

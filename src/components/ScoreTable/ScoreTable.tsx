@@ -1,7 +1,8 @@
 import React from 'react';
 import { RuleRow } from '../RuleRow';
 import { ScoreTableProps } from './ScoreTable.types';
-import './ScoreTable.css';
+// import './ScoreTable.css';
+import { ScoreTableContainer, ScoreTableSection } from './ScoreTable.styles';
 
 import { useDiceGame } from '../../GameRules';
 
@@ -33,8 +34,8 @@ export const ScoreTable: React.FC<ScoreTableProps> = ({ scores, doScore }) => {
   };
 
   return (
-    <div className="ScoreTable">
-      <section className="ScoreTable-section">
+    <ScoreTableContainer className="ScoreTable">
+      <ScoreTableSection className="ScoreTable-section">
         <h2>Upper</h2>
         <table cellSpacing="0">
           <tbody>
@@ -82,7 +83,7 @@ export const ScoreTable: React.FC<ScoreTableProps> = ({ scores, doScore }) => {
             />
           </tbody>
         </table>
-      </section>
+      </ScoreTableSection>
       <section className="ScoreTable-section ScoreTable-section-lower">
         <h2>Lower</h2>
         <table cellSpacing="0">
@@ -140,6 +141,6 @@ export const ScoreTable: React.FC<ScoreTableProps> = ({ scores, doScore }) => {
         </table>
       </section>
       <h2>TOTAL SCORE: {getTotalScore()}</h2>
-    </div>
+    </ScoreTableContainer>
   );
 };

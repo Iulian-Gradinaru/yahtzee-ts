@@ -5,7 +5,7 @@ import { Scores } from './Game.types';
 
 import {
   GameContainer,
-  H2,
+  Title,
   GameDiceSection,
   GameButtonWrapper,
   GameReroll,
@@ -51,7 +51,9 @@ export const Game: React.FC = () => {
     setDice((st) =>
       st.map((d, i) => (locked[i] ? d : Math.ceil(Math.random() * 6)))
     );
-    setLocked((st) => (rollsLeft > 1 ? st : Array(NUM_DICE).fill(true)));
+    setLocked((st) =>
+      rollsLeft > 1 ? st : st.map((value) => (value ? true : false))
+    );
     setRollsLeft((st) => st - 1);
     setRolling(false);
   };
@@ -88,7 +90,7 @@ export const Game: React.FC = () => {
   return (
     <GameContainer className="Game">
       <GameHeader className="Game-header">
-        <H2 className="App-title">Yahtzee!</H2>
+        <Title className="App-title">Yahtzee!</Title>
         <GameDiceSection className="Game-dice-section">
           <Dice
             dice={dice}
