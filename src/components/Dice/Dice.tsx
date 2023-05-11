@@ -1,8 +1,23 @@
 import React from 'react';
-import { Die } from '../Die/Die';
-import { DiceProps } from './Dice.types';
+
+/**
+ * Imports components
+ */
+import { Die } from '../Die';
+
+/**
+ * Imports styled componens
+ */
 import { DiceContainer } from './Dice.styles';
 
+/**
+ * Imports types
+ */
+import { DiceProps } from './Dice.types';
+
+/**
+ * Displays the component
+ */
 export const Dice: React.FC<DiceProps> = ({
   dice,
   handleClick,

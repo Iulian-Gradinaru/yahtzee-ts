@@ -1,8 +1,8 @@
 import { Scores } from '../Game/Game.types';
 
-export type RuleFn = (dice: number[]) => number;
-export type ScoreType = keyof Scores;
-
+/**
+ * Defines the component props interface
+ */
 export interface RuleRowProps {
   score: number | undefined;
   name: string;
@@ -10,3 +10,6 @@ export interface RuleRowProps {
   description: string;
   ruleFn: RuleFn;
 }
+
+export type RuleFn = (dice: number[]) => number;
+export type ScoreType = keyof Scores;

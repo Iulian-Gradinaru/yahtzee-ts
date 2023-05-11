@@ -1,5 +1,11 @@
+/**
+ * Imports styled
+ */
 import { styled } from '@mui/system';
 
+/**
+ * Styles the Game Container
+ */
 export const GameContainer = styled('div')(() => {
   return {
     // width: '30%',
@@ -13,13 +19,19 @@ export const GameContainer = styled('div')(() => {
   };
 });
 
+/**
+ * Styles the Title
+ */
 export const Title = styled('h2')(() => {
   return {
     fontWeight: 100,
-    fontSize: '2em',
+    fontSize: 32,
   };
 });
 
+/**
+ * Styles the Game Dice Section
+ */
 export const GameDiceSection = styled('section')(() => {
   return {
     width: '80%',
@@ -29,13 +41,23 @@ export const GameDiceSection = styled('section')(() => {
   };
 });
 
+/**
+ * Styles the Game Button Wrapper
+ */
 export const GameButtonWrapper = styled('div')(() => {
-  return { display: 'flex', justifyContent: 'center', alignItems: 'center' };
+  return {
+    display: 'flex',
+    justifyContent: 'center',
+    alignItems: 'center',
+  };
 });
 
+/**
+ * Styles the Game Reroll
+ */
 export const GameReroll = styled('button')(() => {
   return {
-    fontSize: '2em',
+    fontSize: 32,
     color: 'white',
     fontWeight: 100,
     transition: '0.5s',
@@ -43,10 +65,10 @@ export const GameReroll = styled('button')(() => {
     boxShadow: '0 19px 38px rgba(0, 0, 0, 0.3), 0 15px 12px rgba(0, 0, 0, 0.1)',
     backgroundImage:
       'linear-gradient(to right, #91eae4 0%, #7f7fd5 51%, #91eae4 100%)',
-    borderRadius: '0.5rem',
+    borderRadius: 8,
     border: 'none',
     width: '50%',
-    marginBottom: '2rem',
+    marginBottom: 32,
     '&:hover': {
       cursor: 'pointer',
       backgroundPosition: 'right center',
@@ -62,6 +84,9 @@ export const GameReroll = styled('button')(() => {
   };
 });
 
+/**
+ * Styles the Game Description
+ */
 export const GameDescription = styled('p')(() => {
   return {
     fontStyle: 'italic',
@@ -69,6 +94,9 @@ export const GameDescription = styled('p')(() => {
   };
 });
 
+/**
+ * Styles the Game Header
+ */
 export const GameHeader = styled('div')(() => {
   return {
     width: '100%',

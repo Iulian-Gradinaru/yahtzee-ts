@@ -1,8 +1,14 @@
 import React, { useState, useEffect } from 'react';
+
+/**
+ * Imports the components
+ */
 import { Dice } from '../Dice';
 import { ScoreTable } from '../ScoreTable';
-import { Scores } from './Game.types';
 
+/**
+ * Imports styled components
+ */
 import {
   GameContainer,
   Title,
@@ -12,14 +18,48 @@ import {
   GameHeader,
 } from './Game.styles';
 
+/**
+ * Imports types
+ */
+import { Scores } from './Game.types';
+
+/**
+ * Representing the number of dice in the game
+ */
 const NUM_DICE = 5;
+
+/**
+ * Representing the maximum number of dice rolls in a round.
+ */
 const NUM_ROLLS = 3;
 
+/**
+ * Displays the component
+ */
 export const Game: React.FC = () => {
+  /**
+   * Initializes the dice values
+   */
   const [dice, setDice] = useState<number[]>(Array.from({ length: NUM_DICE }));
+
+  /**
+   * Initializes the lock state of each die
+   */
   const [locked, setLocked] = useState<boolean[]>(Array(NUM_DICE).fill(false));
+
+  /**
+   * Initializes the number of dice rolls left in a round
+   */
   const [rollsLeft, setRollsLeft] = useState<number>(NUM_ROLLS);
+
+  /**
+   * Initializes the  the dice moving
+   */
   const [rolling, setRolling] = useState<boolean>(false);
+
+  /**
+   * Initializes the scores in the game.
+   */
   const [scores, setScores] = useState<Scores>({
     ones: undefined,
     twos: undefined,
@@ -36,10 +76,9 @@ export const Game: React.FC = () => {
     chance: undefined,
   });
 
-  useEffect(() => {
-    animateRoll();
-  }, []);
-
+  /**
+   * Handles the dice rolling animation
+   */
   const animateRoll = () => {
     setRolling(true);
     setTimeout(() => {
@@ -47,6 +86,9 @@ export const Game: React.FC = () => {
     }, 1000);
   };
 
+  /**
+   * Handles the actual roll of the dice
+   */
   const roll = () => {
     setDice((st) =>
       st.map((d, i) => (locked[i] ? d : Math.ceil(Math.random() * 6)))
@@ -58,12 +100,18 @@ export const Game: React.FC = () => {
     setRolling(false);
   };
 
+  /**
+   * Handles the changes the lock/unlock state of a die
+   */
   const toggleLocked = (idx: number) => {
     if (rollsLeft > 0 && !rolling) {
       setLocked((st) => [...st.slice(0, idx), !st[idx], ...st.slice(idx + 1)]);
     }
   };
 
+  /**
+   * Handles the update scores
+   */
   const doScore = (
     rulename: keyof Scores,
     ruleFn: (dice: number[]) => number
@@ -77,6 +125,9 @@ export const Game: React.FC = () => {
     animateRoll();
   };
 
+  /**
+   * Handles the message corresponding to the number of throws remaining in a round
+   */
   const displayRollInfo = () => {
     const messages = [
       '0 Rolls Left',
@@ -86,6 +137,13 @@ export const Game: React.FC = () => {
     ];
     return messages[rollsLeft];
   };
+
+  /**
+   * Handles the animateRoll function
+   */
+  useEffect(() => {
+    animateRoll();
+  }, []);
 
   return (
     <GameContainer className="Game">

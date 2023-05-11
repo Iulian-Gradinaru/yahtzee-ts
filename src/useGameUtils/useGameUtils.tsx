@@ -1,6 +1,6 @@
 import { useState } from 'react';
 
-export const useDiceGame = () => {
+export const useGameUtils = () => {
   function sum(dice: number[]): number {
     // sum of all dice
     return dice.reduce((prev, curr) => prev + curr);
@@ -18,7 +18,7 @@ export const useDiceGame = () => {
     return dice.filter((d) => d === val).length;
   };
 
-  const useRule = (
+  const Rule = (
     score: number,
     count: (dice: number[], val: number) => number,
     description: string
@@ -30,14 +30,14 @@ export const useDiceGame = () => {
     return { currentScore, setCurrentScore, evalRoll, description };
   };
 
-  const ones = useRule(1, count, '1 point per 1');
-  const twos = useRule(2, count, '2 points per 2');
-  const threes = useRule(3, count, '3 points per 3');
-  const fours = useRule(4, count, '4 points per 4');
-  const fives = useRule(5, count, '5 points per 5');
-  const sixes = useRule(6, count, '6 points per 6');
+  const ones = Rule(1, count, '1 point per 1');
+  const twos = Rule(2, count, '2 points per 2');
+  const threes = Rule(3, count, '3 points per 3');
+  const fours = Rule(4, count, '4 points per 4');
+  const fives = Rule(5, count, '5 points per 5');
+  const sixes = Rule(6, count, '6 points per 6');
 
-  const useSumDistro = (count: number, description: string, score: number) => {
+  const SumDistro = (count: number, description: string, score: number) => {
     const [currentScore, setCurrentScore] = useState(0);
     const evalRoll = (dice: number[]): number => {
       // do any of the counts meet of exceed this distro?
@@ -46,10 +46,10 @@ export const useDiceGame = () => {
     return { currentScore, setCurrentScore, evalRoll, description, score };
   };
 
-  const threeOfKind = useSumDistro(3, 'Sum all dice if 3 are the same', 0);
-  const fourOfKind = useSumDistro(4, 'Sum all dice if 4 are the same', 0);
+  const threeOfKind = SumDistro(3, 'Sum all dice if 3 are the same', 0);
+  const fourOfKind = SumDistro(4, 'Sum all dice if 4 are the same', 0);
 
-  const useFullHouse = (score: number, description: string) => {
+  const FullHouse = (score: number, description: string) => {
     const [currentScore, setCurrentScore] = useState(0);
     const evalRoll = (dice: number[]): number => {
       const freqs = freq(dice);
@@ -58,7 +58,7 @@ export const useDiceGame = () => {
     return { currentScore, setCurrentScore, evalRoll, description };
   };
 
-  const useSmallStraight = (score: number, description: string) => {
+  const SmallStraight = (score: number, description: string) => {
     const [currentScore, setCurrentScore] = useState(0);
     const evalRoll = (dice: number[]): number => {
       const d = new Set(dice);
@@ -75,7 +75,7 @@ export const useDiceGame = () => {
     return { currentScore, setCurrentScore, evalRoll, description };
   };
 
-  const useLargeStraight = (score: number, description: string) => {
+  const LargeStraight = (score: number, description: string) => {
     const [currentScore, setCurrentScore] = useState(0);
     const evalRoll = (dice: number[]): number => {
       const d = new Set(dice);
@@ -87,7 +87,7 @@ export const useDiceGame = () => {
     return { currentScore, setCurrentScore, evalRoll, description };
   };
 
-  const useYahtzee = (score: number, description: string) => {
+  const Yahtzee = (score: number, description: string) => {
     const [currentScore, setCurrentScore] = useState(0);
 
     const evalRoll = (dice: number[]): number => {
@@ -99,18 +99,18 @@ export const useDiceGame = () => {
     return { currentScore, setCurrentScore, evalRoll, description };
   };
 
-  const fullHouse = useFullHouse(25, '25 points for a full house');
+  const fullHouse = FullHouse(25, '25 points for a full house');
 
   // small/large straights score as 30/40
-  const smallStraight = useSmallStraight(30, '30 points for a small straight');
+  const smallStraight = SmallStraight(30, '30 points for a small straight');
 
-  const largeStraight = useLargeStraight(40, '40 points for a large straight');
+  const largeStraight = LargeStraight(40, '40 points for a large straight');
 
   // yahtzee scores as 50
-  const yahtzee = useYahtzee(50, '50 points for yahtzee');
+  const yahtzee = Yahtzee(50, '50 points for yahtzee');
 
   // for chance, can view as some of all dice, requiring at least 0 of a kind
-  const chance = useSumDistro(0, 'Sum of all dice', 0);
+  const chance = SumDistro(0, 'Sum of all dice', 0);
 
   return {
     ones,

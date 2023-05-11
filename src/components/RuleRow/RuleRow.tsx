@@ -1,8 +1,18 @@
 import React from 'react';
-import './RuleRow.css';
-import { RuleRowProps } from './RuleRow.types';
+
+/**
+ * Imports styled components
+ */
 import { RuleRowWrapper } from './RuleRow.styles';
 
+/**
+ * Imports types
+ */
+import { RuleRowProps } from './RuleRow.types';
+
+/**
+ * Displays the component
+ */
 export const RuleRow: React.FC<RuleRowProps> = ({
   score,
   name,

@@ -1,6 +1,6 @@
-// import './Die.css';
-import { DieProps } from './Die.types';
-
+/**
+ * Imports styled components
+ */
 import { Button, DieIcon } from './Die.styled';
 import {
   faDiceOne,
@@ -11,6 +11,14 @@ import {
   faDiceSix,
 } from '@fortawesome/free-solid-svg-icons';
 
+/**
+ * Imports types
+ */
+import { DieProps } from './Die.types';
+
+/**
+ * Displays the component
+ */
 export const Die: React.FC<DieProps> = ({
   numberWords = ['one', 'two', 'three', 'four', 'five', 'six'],
   val = 5,
@@ -20,6 +28,9 @@ export const Die: React.FC<DieProps> = ({
   handleClick,
   idx,
 }) => {
+  /**
+   * Handles click on the die
+   */
   const handleDieClick = () => {
     if (handleClick) handleClick(idx!);
   };
@@ -28,6 +39,9 @@ export const Die: React.FC<DieProps> = ({
   if (locked) classes += ' Die-locked';
   if (rolling) classes += ' Die-rolling';
 
+  /**
+   * Handles returns the icon corresponding to the dice value
+   */
   const getDieFace = () => {
     const diceFaces = [
       faDiceOne,
