@@ -1,11 +1,28 @@
 import React from 'react';
+
+/**
+ * Imports components
+ */
 import { RuleRow } from '../RuleRow';
-import { ScoreTableProps } from './ScoreTable.types';
-// import './ScoreTable.css';
+
+/**
+ * Imports styled components
+ */
 import { ScoreTableContainer, ScoreTableSection } from './ScoreTable.styles';
 
+/**
+ * Imports hooks
+ */
 import { useGameUtils } from '../../useGameUtils';
 
+/**
+ * Import types
+ */
+import { ScoreTableProps } from './ScoreTable.types';
+
+/**
+ * Displays the component
+ */
 export const ScoreTable: React.FC<ScoreTableProps> = ({ scores, doScore }) => {
   const {
     ones,
@@ -23,6 +40,9 @@ export const ScoreTable: React.FC<ScoreTableProps> = ({ scores, doScore }) => {
     chance,
   } = useGameUtils();
 
+  /**
+   * Handle the total score
+   */
   const getTotalScore = () => {
     let totalScore = 0;
     for (let key in scores) {
@@ -144,3 +164,5 @@ export const ScoreTable: React.FC<ScoreTableProps> = ({ scores, doScore }) => {
     </ScoreTableContainer>
   );
 };
+
+``;

@@ -1,5 +1,11 @@
+/**
+ * Imports styled
+ */
 import { styled } from '@mui/system';
 
+/**
+ * Styles the Score Table Container
+ */
 export const ScoreTableContainer = styled('div')(() => {
   return {
     display: 'flex',
@@ -15,6 +21,9 @@ export const ScoreTableContainer = styled('div')(() => {
   };
 });
 
+/**
+ * Styles the Score Table Section
+ */
 export const ScoreTableSection = styled('section')(() => {
   return {
     verticalAlign: 'top',
