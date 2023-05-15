@@ -138,6 +138,14 @@ export const Game: React.FC = () => {
     return messages[rollsLeft];
   };
 
+  // const resetGame = () => {
+  //   setDice((prevDice) =>
+  //     prevDice.map((d, i) => (locked[i] ? d : Math.ceil(Math.random() * 6)))
+  //   );
+  //   setLocked(Array(NUM_DICE).fill(false));
+  //   setRollsLeft(NUM_ROLLS);
+  // };
+
   /**
    * Handles the animateRoll function
    */

@@ -1,6 +1,12 @@
+/**
+ * Imports styled
+ */
 import { styled } from '@mui/system';
 import { keyframes } from '@mui/system';
 
+/**
+ * Styles the Rule Row Wrapper
+ */
 export const RuleRowWrapper = styled('tr')(() => {
   return {
     transition: 'all 0.2s',

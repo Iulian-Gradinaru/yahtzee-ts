@@ -10,9 +10,9 @@ export const ScoreTableContainer = styled('div')(() => {
   return {
     display: 'flex',
     flexDirection: 'column',
-    fontSize: '0.9rem',
+    fontSize: 14,
     backgroundColor: 'white',
-    padding: '1em',
+    padding: 16,
     '& table': {
       width: '100%',
       margin: '0 auto',
