@@ -22,6 +22,7 @@ import {
  * Imports types
  */
 import { Scores } from './Game.types';
+import { faL } from '@fortawesome/free-solid-svg-icons';
 
 /**
  * Representing the number of dice in the game
@@ -89,13 +90,12 @@ export const Game: React.FC = () => {
   /**
    * Handles the actual roll of the dice
    */
+
   const roll = () => {
     setDice((st) =>
       st.map((d, i) => (locked[i] ? d : Math.ceil(Math.random() * 6)))
     );
-    setLocked((st) =>
-      rollsLeft > 1 ? st : st.map((value) => (value ? true : false))
-    );
+    setLocked((st) => (rollsLeft > 1 ? st : Array(NUM_DICE).fill(true)));
     setRollsLeft((st) => st - 1);
     setRolling(false);
   };
@@ -121,8 +121,9 @@ export const Game: React.FC = () => {
       [rulename]: ruleFn(dice),
     }));
     setRollsLeft(NUM_ROLLS);
-    setLocked(Array(NUM_DICE).fill(false));
     animateRoll();
+    setLocked((prevstate) => prevstate.map(() => false));
+    setDice((st) => st.map(() => Math.ceil(Math.random() * 6)));
   };
 
   /**
@@ -138,20 +139,21 @@ export const Game: React.FC = () => {
     return messages[rollsLeft];
   };
 
-  // const resetGame = () => {
-  //   setDice((prevDice) =>
-  //     prevDice.map((d, i) => (locked[i] ? d : Math.ceil(Math.random() * 6)))
-  //   );
-  //   setLocked(Array(NUM_DICE).fill(false));
-  //   setRollsLeft(NUM_ROLLS);
-  // };
-
   /**
    * Handles the animateRoll function
    */
   useEffect(() => {
     animateRoll();
   }, []);
+
+  useEffect(() => {
+    if (rollsLeft === 2 && locked.every((i) => i)) {
+      setLocked(Array(NUM_DICE).fill(false));
+    }
+    if (rollsLeft === 0 && locked.every((i) => i)) {
+      setLocked(Array(NUM_DICE).fill(true));
+    }
+  }, [rollsLeft, locked]);
 
   return (
     <GameContainer className="Game">
@@ -165,6 +167,7 @@ export const Game: React.FC = () => {
             disabled={rollsLeft === 0}
             rolling={rolling}
           />
+
           <GameButtonWrapper className="Game-button-wrapper">
             <GameReroll
               className="Game-reroll"
