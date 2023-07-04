@@ -8,7 +8,11 @@ import { RuleRow } from '../RuleRow';
 /**
  * Imports styled components
  */
-import { ScoreTableContainer, ScoreTableSection } from './ScoreTable.styles';
+import {
+  ScoreTableContainer,
+  ScoreTableSection,
+  Title,
+} from './ScoreTable.styles';
 
 /**
  * Imports hooks
@@ -56,7 +60,7 @@ export const ScoreTable: React.FC<ScoreTableProps> = ({ scores, doScore }) => {
   return (
     <ScoreTableContainer className="ScoreTable">
       <ScoreTableSection className="ScoreTable-section">
-        <h2>Upper</h2>
+        <Title>Upper</Title>
         <table cellSpacing="0">
           <tbody>
             <RuleRow
@@ -105,7 +109,7 @@ export const ScoreTable: React.FC<ScoreTableProps> = ({ scores, doScore }) => {
         </table>
       </ScoreTableSection>
       <section className="ScoreTable-section ScoreTable-section-lower">
-        <h2>Lower</h2>
+        <Title>Lower</Title>
         <table cellSpacing="0">
           <tbody>
             <RuleRow
@@ -160,9 +164,7 @@ export const ScoreTable: React.FC<ScoreTableProps> = ({ scores, doScore }) => {
           </tbody>
         </table>
       </section>
-      <h2>TOTAL SCORE: {getTotalScore()}</h2>
+      <Title>TOTAL SCORE: {getTotalScore()}</Title>
     </ScoreTableContainer>
   );
 };
-
-``;

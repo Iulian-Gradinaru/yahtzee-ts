@@ -22,7 +22,7 @@ import {
  * Imports types
  */
 import { Scores } from './Game.types';
-import { faL } from '@fortawesome/free-solid-svg-icons';
+// import { faL } from '@fortawesome/free-solid-svg-icons';
 
 /**
  * Representing the number of dice in the game
