@@ -48,13 +48,15 @@ export const Button = styled('button', {
       },
       // Add responsive styles here
       '@media (max-width: 768px)': {
-        fontSize: 19,
+        width: '100%',
+        height: '100%',
       },
-      '@media (max-width: 480px)': {
-        fontSize: 16,
+      '@media (max-width: 391px)': {
+        width: '100%',
+        height: '100%',
       },
       // General responsive styles
-      maxWidth: '100%',
+
       width: '100%',
       borderRadius: 8,
     };
@@ -74,6 +76,24 @@ export const Button = styled('button', {
  */
 export const DieIcon = styled(FontAwesomeIcon)(() => {
   return {
+    display: 'flex',
+    justifyContent: 'center',
+    alignItems: 'center',
+    width: '100%',
     margin: 0,
+    '@media (max-width: 768px)': {
+      display: 'flex',
+      justifyContent: 'center',
+      alignItems: 'center',
+      height: '100%',
+      width: '81%',
+    },
+    '@media (max-width: 480px)': {
+      display: 'flex',
+      justifyContent: 'center',
+      alignItems: 'center',
+      height: '100%',
+      width: '81%',
+    },
   };
 });

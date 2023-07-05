@@ -8,21 +8,58 @@ import { styled } from '@mui/system';
  */
 export const GameContainer = styled('div')(() => {
   return {
-    background: 'white',
+    // background: 'white',
     boxShadow: '0 19px 38px rgba(0, 0, 0, 0.3), 0 15px 12px rgba(0, 0, 0, 0.1)',
     display: 'flex',
     flexDirection: 'column',
     justifyContent: 'center',
     alignItems: 'center',
+    height: '95%',
+    width: '32%',
+
     '@media (max-width: 768px)': {
-      backgroundColor: 'red',
-      display: 'flex',
-      justifyContent: 'center',
-      alignItems: 'center',
-      flexDirection: 'column',
-      verticalAlign: 'top',
       width: '100%',
-      height: '50%',
+      height: '100%',
+      border: '2px solid black',
+    },
+
+    '@media (max-width: 391px)': {
+      width: '100%',
+      height: '100%',
+      border: '2px solid black',
+    },
+  };
+});
+
+/**
+ * Styles the Game Header
+ */
+export const GameHeader = styled('div')(() => {
+  return {
+    width: '100%',
+    background: 'linear-gradient(-45deg, #673ab7, #9c27b0)',
+    backgroundSize: '400% 400%',
+    animation: '$Gradient 15s ease infinite',
+    '@keyframes Gradient': {
+      '0%': {
+        backgroundPosition: '0% 50%',
+      },
+      '50%': {
+        backgroundPosition: '100% 50%',
+      },
+      '100%': {
+        backgroundPosition: '0% 50%',
+      },
+    },
+    '@media (max-width: 768px)': {
+      fontSize: 127,
+      width: '100%',
+      height: '32%',
+    },
+    '@media (max-width: 391px)': {
+      fontSize: 127,
+      width: '100%',
+      height: '68%',
     },
   };
 });
@@ -33,7 +70,21 @@ export const GameContainer = styled('div')(() => {
 export const Title = styled('h2')(() => {
   return {
     fontWeight: 100,
-    fontSize: 32,
+    display: 'flex',
+    justifyContent: 'center',
+    alignItems: 'center',
+    width: '100%',
+    '@media (max-width: 768px)': {
+      width: '100%',
+      height: 'auto',
+      border: '2px solid black',
+    },
+
+    '@media (max-width: 391px)': {
+      width: '100%',
+      height: 65,
+      border: '2px solid black',
+    },
   };
 });
 
@@ -42,9 +93,25 @@ export const Title = styled('h2')(() => {
  */
 export const GameDiceSection = styled('section')(() => {
   return {
+    display: 'flex',
+    justifyContent: 'center',
+    alignItems: 'center',
+    flexDirection: 'column',
+    width: '100%',
     marginLeft: 'auto',
     marginRight: 'auto',
     marginTop: 0,
+    '@media (max-width: 768px)': {
+      width: '100%',
+      height: '62%',
+      border: '2px solid black',
+    },
+
+    '@media (max-width: 391px)': {
+      width: '100%',
+      height: '63%',
+      border: '2px solid black',
+    },
   };
 });
 
@@ -56,6 +123,8 @@ export const GameButtonWrapper = styled('div')(() => {
     display: 'flex',
     justifyContent: 'center',
     alignItems: 'center',
+    width: '100%',
+    marginBottom: 10,
   };
 });
 
@@ -98,32 +167,6 @@ export const GameDescription = styled('p')(() => {
   return {
     fontStyle: 'italic',
     color: 'white',
-  };
-});
-
-/**
- * Styles the Game Header
- */
-export const GameHeader = styled('div')(() => {
-  return {
-    width: '100%',
-    background: 'linear-gradient(-45deg, #673ab7, #9c27b0)',
-    backgroundSize: '400% 400%',
-    animation: '$Gradient 15s ease infinite',
-    '@keyframes Gradient': {
-      '0%': {
-        backgroundPosition: '0% 50%',
-      },
-      '50%': {
-        backgroundPosition: '100% 50%',
-      },
-      '100%': {
-        backgroundPosition: '0% 50%',
-      },
-    },
-    '@media (max-width: 769px)': {
-      fontSize: 127,
-    },
   };
 });
 

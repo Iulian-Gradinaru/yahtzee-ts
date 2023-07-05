@@ -11,13 +11,28 @@ export const DiceContainer = styled('div')(() => {
     margin: 16,
     display: 'flex',
     justifyContent: 'center',
+    alignItems: 'center',
+    height: '100%',
+    width: '100%',
+    padding: 10,
 
     '@media (max-width: 768px)': {
-      margin: 8,
-    },
-    '@media (max-width: 480px)': {
-      flexDirection: 'column',
+      display: 'flex',
+      justifyContent: 'center',
       alignItems: 'center',
+      height: '66%',
+      width: '81%',
+      border: '2px solid white',
+      gap: 20,
+    },
+    '@media (max-width: 391px)': {
+      display: 'flex',
+      justifyContent: 'center',
+      alignItems: 'center',
+      height: '100%',
+      width: '100%',
+      border: '2px solid white',
+      gap: 20,
     },
   };
 });

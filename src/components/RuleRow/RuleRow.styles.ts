@@ -34,13 +34,44 @@ export const RuleRowWrapper = styled('tr')(() => {
       width: '50%',
       textAlign: 'right',
     },
+
     '@media screen and (max-width: 768px)': {
       td: {
         display: 'block',
         textAlign: 'center',
         padding: '0.5em 0',
         borderBottom: 'none',
+        '&.RuleRow-disabled': {
+          td: {
+            textDecoration: 'line-through',
+          },
+          '&:hover': {
+            cursor: 'not-allowed',
+          },
+        },
       },
+
+      '.RuleRow-name, .RuleRow-score': {
+        width: '100%',
+        textAlign: 'center',
+      },
+    },
+    '@media screen and (max-width: 391)': {
+      td: {
+        display: 'block',
+        textAlign: 'center',
+        padding: '0.5em 0',
+        borderBottom: 'none',
+        '&.RuleRow-disabled': {
+          td: {
+            textDecoration: 'line-through',
+          },
+          '&:hover': {
+            cursor: 'not-allowed',
+          },
+        },
+      },
+
       '.RuleRow-name, .RuleRow-score': {
         width: '100%',
         textAlign: 'center',

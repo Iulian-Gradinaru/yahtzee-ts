@@ -108,7 +108,7 @@ export const ScoreTable: React.FC<ScoreTableProps> = ({ scores, doScore }) => {
           </tbody>
         </table>
       </ScoreTableSection>
-      <section className="ScoreTable-section ScoreTable-section-lower">
+      <ScoreTableSection className="ScoreTable-section ScoreTable-section-lower">
         <Title>Lower</Title>
         <table cellSpacing="0">
           <tbody>
@@ -163,7 +163,7 @@ export const ScoreTable: React.FC<ScoreTableProps> = ({ scores, doScore }) => {
             />
           </tbody>
         </table>
-      </section>
+      </ScoreTableSection>
       <Title>TOTAL SCORE: {getTotalScore()}</Title>
     </ScoreTableContainer>
   );
