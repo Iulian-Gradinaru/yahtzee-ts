@@ -22,7 +22,6 @@ export const DiceContainer = styled('div')(() => {
       alignItems: 'center',
       height: '66%',
       width: '81%',
-      border: '2px solid white',
       gap: 20,
     },
     '@media (max-width: 391px)': {
@@ -31,7 +30,6 @@ export const DiceContainer = styled('div')(() => {
       alignItems: 'center',
       height: '100%',
       width: '100%',
-      border: '2px solid white',
       gap: 20,
     },
   };

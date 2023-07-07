@@ -12,6 +12,7 @@ import {
   ScoreTableContainer,
   ScoreTableSection,
   Title,
+  // CustomTable,
 } from './ScoreTable.styles';
 
 /**

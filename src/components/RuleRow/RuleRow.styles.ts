@@ -37,10 +37,20 @@ export const RuleRowWrapper = styled('tr')(() => {
 
     '@media screen and (max-width: 768px)': {
       td: {
-        display: 'block',
-        textAlign: 'center',
-        padding: '0.5em 0',
-        borderBottom: 'none',
+        // textDecoration: 'line-through',
+        padding: '0.3em',
+        // borderBottom: 'solid 1px black',
+        '&:hover': {
+          cursor: 'not-allowed',
+        },
+        '.RuleRow-name': {
+          width: '50%',
+          textAlign: 'left',
+        },
+        '.RuleRow-score': {
+          width: '50%',
+          textAlign: 'right',
+        },
         '&.RuleRow-disabled': {
           td: {
             textDecoration: 'line-through',
@@ -49,11 +59,6 @@ export const RuleRowWrapper = styled('tr')(() => {
             cursor: 'not-allowed',
           },
         },
-      },
-
-      '.RuleRow-name, .RuleRow-score': {
-        width: '100%',
-        textAlign: 'center',
       },
     },
     '@media screen and (max-width: 391)': {
@@ -62,6 +67,14 @@ export const RuleRowWrapper = styled('tr')(() => {
         textAlign: 'center',
         padding: '0.5em 0',
         borderBottom: 'none',
+        '.RuleRow-name': {
+          width: '50%',
+          textAlign: 'left',
+        },
+        '.RuleRow-score': {
+          width: '50%',
+          textAlign: 'right',
+        },
         '&.RuleRow-disabled': {
           td: {
             textDecoration: 'line-through',
@@ -70,11 +83,6 @@ export const RuleRowWrapper = styled('tr')(() => {
             cursor: 'not-allowed',
           },
         },
-      },
-
-      '.RuleRow-name, .RuleRow-score': {
-        width: '100%',
-        textAlign: 'center',
       },
     },
   };
